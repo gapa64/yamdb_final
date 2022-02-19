@@ -43,4 +43,4 @@ Docker image проекта api_yamdb  gaps64/api_yamdb:v2.4
 ## Автор
 - [Sergey K](https://github.com/gapa64)
 
-![yamdb workflow](https://github.com/gapa64/yambdb_final/actions/workflows/yambd_workflow.yml/badge.svg)
+![yamdb workflow](https://github.com/gapa64/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
