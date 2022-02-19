@@ -4,11 +4,11 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from api.permissions import AdminOnly
 from . import service
 from .models import User
 from .serializers import (GetTokenSerializer, RegistrationSerializer,
                           UserSerializer)
-from api.permissions import AdminOnly
 
 
 class RegistrationAPIView(APIView):

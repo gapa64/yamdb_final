@@ -6,10 +6,10 @@ from rest_framework.pagination import PageNumberPagination
 
 from .filters import TitleFilter
 from .permissions import AdminsOrReadOnly, AuthorOrModeratorOrReadOnly
+from reviews.models import Category, Comment, Genre, Review, Title
 from .serializers import (CategorySerializer, CommentSerializer,
                           GenreSerializer, ReviewSerializer,
                           TitleListSerializer, TitleSerializer)
-from reviews.models import Category, Comment, Genre, Review, Title
 
 
 class DictViewSet(
