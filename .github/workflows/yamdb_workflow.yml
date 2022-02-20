@@ -66,6 +66,7 @@ jobs:
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             sudo docker compose up -d
+            sudo docker exec ${{ secrets.USER }}-web-1 python manage.py migrate
             sudo docker exec ${{ secrets.USER }}-web-1 python manage.py collectstatic --no-input
 
   send_message:
