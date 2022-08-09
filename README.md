@@ -65,13 +65,14 @@ TELEGRAM_TOKEN | token of the bot which sends notifications
 
 
 Upon commit to master, the Github Actions run the following jobs:
-####Jobs
+
+#### Jobs
 - tests. Autotests
 - build_and_push_to_docker_hub. Auto rebuild of yamdb-final docker image and pushing it to Docker Hub.
 - deploy. Deploys project on a server.
 - send_message. Sends notification
 
-##YAMDB Documentation
+## YAMDB Documentation
 
 ### Try [base api url](http:/yamdb-final.hopto.org/api/v1/titles/)
 ### [Entire API specification](http:/yamdb-final.hopto.org/redoc)
