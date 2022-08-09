@@ -33,7 +33,8 @@ class Category(models.Model):
 
 
 class Title(models.Model):
-    name = models.CharField(db_index=True, max_length=256,
+    name = models.CharField(db_index=True,
+                            max_length=256,
                             verbose_name='Название')
     year = models.IntegerField(
         validators=[year_validator],
@@ -48,7 +49,8 @@ class Title(models.Model):
         null=True,
         verbose_name='Категория',
     )
-    genre = models.ManyToManyField(Genre, related_name='titles',
+    genre = models.ManyToManyField(Genre,
+                                   related_name='titles',
                                    verbose_name='Жанр')
 
     class Meta:
@@ -86,6 +88,9 @@ class Review(models.Model):
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
 
+    def __str__(self):
+        return f'{self.title}_{self.author}'
+
 
 class Comment(models.Model):
     author = models.ForeignKey(User,
@@ -97,7 +102,7 @@ class Comment(models.Model):
     review = models.ForeignKey(Review,
                                on_delete=models.CASCADE,
                                related_name='comments',
-                               verbose_name='Коментатор')
+                               verbose_name='Отзыв')
 
     text = models.TextField(verbose_name='Текст коментария',
                             help_text='Введите текст коментария')
