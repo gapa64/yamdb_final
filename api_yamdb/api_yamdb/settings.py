@@ -116,7 +116,6 @@ DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', EMAIL_ADMIN)
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'users.backends.JWTAuthentication',
@@ -125,5 +124,3 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 4,
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
-
-EMAIL_ADMIN = 'gaps64@yandex.ru'

@@ -15,7 +15,6 @@ def generate_random_string(length: int) -> str:
 
 def send_confirmation_code(email: str, code: str) -> None:
     """Отправить код по указанному адресу."""
-    print("send_confirmation_code")
     res = send_mail(
         'Please confirm your registration',
         f'Your confirmation_code:\n{code}',
@@ -24,7 +23,6 @@ def send_confirmation_code(email: str, code: str) -> None:
         fail_silently=False,
     )
     print(res)
-
 
 
 def get_hash(code: str) -> str or None:
