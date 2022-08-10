@@ -150,5 +150,3 @@ api_yamdb/static/admin/
 api_yamdb/static/rest_framework/
 api_yamdb/media/
 # папки со статикой и медиа
-api_yamdb/reviews/migrations/
-api_yamdb/users/migrations/
