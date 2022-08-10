@@ -63,7 +63,6 @@ EMAIL_USE_SSL | Boolean value True or False, set True if SSL required by remote 
 TELEGRAM_TO | Chat id to send notification
 TELEGRAM_TOKEN | token of the bot which sends notifications
 
-
 Upon commit to master, the Github Actions run the following jobs:
 
 #### Jobs
