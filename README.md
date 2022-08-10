@@ -15,9 +15,8 @@ The solution includes 3 docker containers
 
 ### Currently the project deployed at 
 ### [http:/yamdb-final.hopto.org/api/v1/](http:/yamdb-final.hopto.org/api/v1/)
-### Try [base api url](http:/yamdb-final.hopto.org/api/v1/titles/)
+### [Try base API url](http:/yamdb-final.hopto.org/api/v1/titles/)
 ### [Entire API specification](http:/yamdb-final.hopto.org/redoc)  
-
 
 ## Install
 There several ways to deploy yamdb_final sloution
