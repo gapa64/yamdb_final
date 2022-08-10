@@ -77,6 +77,15 @@ Upon commit to master, the Github Actions run the following jobs:
 ### Try [base api url](http:/yamdb-final.hopto.org/api/v1/titles/)
 ### [Entire API specification](http:/yamdb-final.hopto.org/redoc)
 ### API examples
+There are several examples of API calls
+- [Get list of titles](#get-list-of-titles)
+- [Get single title](#get-single-title)
+- [Get list of reviews for particular title](#get-list-of-reviews-for-particular-title)
+- [Post a review](#post-review)
+- [Comment a review](#comment-a-review)
+- [Create a new user](#create-a-new-user)
+- [Retrieve Authorization Token](#retrieve-token)
+
 #### Get list of Titles
 `GET /api/v1/titles/`
 
@@ -150,7 +159,7 @@ Body
     "description": "Generic Example"
 }
 ```
-#### Get list of reviews of particular title
+#### Get list of reviews for particular title
 `GET /api/v1/titles/6/reviews`
 
 Response
@@ -265,9 +274,9 @@ Body
   "text":"Fully agree with review!"
 }
 ```
-### Create a new user
-User Creation is a two factor process.
-1) Register New User
+#### Create a new user
+User Creation and authorisation is a two factor process.
+Register New User
 
 `POST /api/v1/auth/signup/`
 ```bash
@@ -299,8 +308,9 @@ Body
   "email": "testuser@mail.com"
 }
 ```
-2) Confirm you credentials and retrieve Token.  
+#### Retrieve Token
 The server will send an email with confirmation Code.  
+Confirm your username with the confirmation code.
 `POST /api/v1/auth/token/`
 ```bash
 content type: application/json
@@ -333,9 +343,7 @@ Body
 ### Usefull links:
 [Models Diagram](https://drive.google.com/file/d/1T9OHj-UAWXTzzAm7cWSml5KN8PDwlQUf/view?usp=sharing)
 ```bash
-actual Docker api_yamdb gaps64/api_yamdb:v2.4
+actual Docker api_yamdb image gaps64/api_yamdb:latest
 ```
 ## Author
 - [Sergey K](https://github.com/gapa64)
-
-
