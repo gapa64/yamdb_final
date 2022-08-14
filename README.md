@@ -3,7 +3,7 @@
 
 The Project **Yamdb Final** implements CI\CD model for the API YAMDB.
 
-API YAMDB is [Sergey K](https://github.com/gapa64)  student project, of the Django Rest Framework course, which is a part of Yandex Practicum Backend specialization.  
+API YAMDB is [Sergey K](https://github.com/gapa64) student project, of the Django Rest Framework course, which is a part of Yandex Practicum Backend specialization.  
 The project provides REST API and a whole backend infrastructure for the simple social network YamDB, where users may write their reviews for the different titles, comment and rate them.  
 
 **Yamdb Final**  Deployed by github Actions toolset and Docker Compose.
@@ -62,12 +62,12 @@ EMAIL_USE_SSL | Boolean value True or False, set True if SSL required by remote 
 TELEGRAM_TO | Chat id to send notification
 TELEGRAM_TOKEN | token of the bot which sends notifications
 
-Upon commit to master, the Github Actions run the following jobs:
+Upon commit to master branch, the Github Actions run the following jobs:
 
 #### Jobs
 - tests. Autotests
 - build_and_push_to_docker_hub. Auto rebuild of yamdb-final docker image and pushing it to Docker Hub.
-- deploy. Deploys project on a server.
+- deploy. Deploys the project on a server.
 - send_message. Sends notification
 
 ## YAMDB Documentation
@@ -110,7 +110,7 @@ Body
         "id": 7,
         "category": {
           "name": "Music",
-        "slug": "music"
+          "slug": "music"
         },
         "genre": [
           {
@@ -127,29 +127,41 @@ Body
 }
 ```
 #### Get single title
-`GET /api/v1/titles/6/`
+`GET /api/v1/titles/{title_id}/`
 
+Response
+```bash
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 14 Aug 2022 19:14:45 GMT
+Content-Type: application/json
+Content-Length: 734
+Connection: keep-alive
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+```
 Body
 ```json
 {
     "id": 6,
     "category": {
-        "name": "Music",
-        "slug": "music"
+      "name": "Music",
+      "slug": "music"
     },
     "genre": [
-        {
-            "name": "alternative",
-            "slug": "alternative"
-        },
-        {
-            "name": "Rock",
-            "slug": "rock"
-        },
-        {
-            "name": "Nu Metal",
-            "slug": "numetal"
-        }
+      {
+        "name": "alternative",
+        "slug": "alternative"
+      },
+      {
+        "name": "Rock",
+        "slug": "rock"
+      },
+      {
+        "name": "Nu Metal",
+        "slug": "numetal"
+      }
     ],
     "rating": 8.5,
     "name": "Untouchables",
@@ -158,7 +170,7 @@ Body
 }
 ```
 #### Get list of reviews for particular title
-`GET /api/v1/titles/6/reviews`
+`GET /api/v1/titles/{title_id}/reviews/`
 
 Response
 ```bash
@@ -206,6 +218,7 @@ To post a review for a particular title, the title_id is needed.
 content type: application/json
 Authorization: Bearer <token>
 ```
+Body
 ```json
 {
   "text": "Very food title, real masterpiece", 
@@ -237,7 +250,7 @@ Body
 }
 ```
 #### Comment a review
-To post c comment for a particular review the title-id and review-id required
+To post a comment for a particular review the title-id and review-id required
 
 `POST /api/v1/titles/{title_id}/reviews/{review_id}/comments/`
 ```bash
@@ -309,6 +322,7 @@ Body
 #### Retrieve Token
 The server will send an email with confirmation Code.  
 Confirm your username with the confirmation code.
+
 `POST /api/v1/auth/token/`
 ```bash
 content type: application/json
