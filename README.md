@@ -19,14 +19,37 @@ The solution includes 3 docker containers
 ### [Entire API specification](http:/yamdb-final.hopto.org/redoc)  
 
 ## Install
-There several ways to deploy yamdb_final sloution
-### Traditional way
+### Prerequisites
+Project requires Docker Engine and Docker compose plugin to be installed on server.
+More details about Docker Instalation process [Here](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+The instruction above was working at the moment of this document editing Aug 2022 for Ubuntu 18.04 LTS.
+
+### Traditional Installation
 ```bash
 git clone https://github.com/gapa64/yamdb_final
 cd yamdb_final/infra
+```
+Create .env file with the following template
+```bash
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
+EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+EMAIL_HOST=smtp.yandex.ru
+EMAIL_HOST_USER=someuser
+EMAIL_HOST_PASSWORD=somepassword
+EMAIL_ADMIN=someuser@yandex.ru
+EMAIL_PORT=465
+EMAIL_USE_SSL=True
+```
+Run server
+```bash
 docker-compose -d up
 ```
-### CI\CD way
+### CI\CD Install and maintain
 Github Actions provides an extensive toolset for a CI\CD  model impplementation.
 #### Prerequisites:
 - Deploy VM in any public cloud provider
@@ -144,29 +167,29 @@ X-Frame-Options: SAMEORIGIN
 Body
 ```json
 {
-    "id": 6,
-    "category": {
-      "name": "Music",
-      "slug": "music"
+  "id": 6,
+  "category": {
+    "name": "Music",
+    "slug": "music"
+  },
+  "genre": [
+    {
+      "name": "alternative",
+      "slug": "alternative"
     },
-    "genre": [
-      {
-        "name": "alternative",
-        "slug": "alternative"
-      },
-      {
-        "name": "Rock",
-        "slug": "rock"
-      },
-      {
-        "name": "Nu Metal",
-        "slug": "numetal"
-      }
-    ],
-    "rating": 8.5,
-    "name": "Untouchables",
-    "year": 2002,
-    "description": "Generic Example"
+    {
+      "name": "Rock",
+      "slug": "rock"
+    },
+    {
+      "name": "Nu Metal",
+      "slug": "numetal"
+    }
+  ],
+  "rating": 8.5,
+  "name": "Untouchables",
+  "year": 2002,
+  "description": "Generic Example"
 }
 ```
 #### Get list of reviews for particular title
