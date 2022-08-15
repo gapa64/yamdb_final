@@ -49,6 +49,13 @@ Run server
 ```bash
 docker-compose -d up
 ```
+Make migrations, apply it, collect static for admin panel, and load prepared fixtures if test data needed
+```bash
+sudo docker compose exec -T web python manage.py makemigrations
+sudo docker compose exec -T web python manage.py migrate
+sudo docker compose exec -T web python manage.py collectstatic --no-input
+sudo docker compose exec -T web python manage.py loaddata fixtures.json
+```
 ### CI\CD Install and maintain
 Github Actions provides an extensive toolset for a CI\CD  model impplementation.
 #### Prerequisites:
